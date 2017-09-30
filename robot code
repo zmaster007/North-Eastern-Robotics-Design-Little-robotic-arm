@@ -1,0 +1,146 @@
+// written in espbasic 
+// http://www.esp8266basic.com
+Button "turn on", [On]
+Button "turn off", [Off]
+Print
+Button "use the sliders",[Slider]
+Button "stop the sliders" ,[StopSlider]
+Print "Base Left Right"
+Slider BaseLeftRight,0,180 
+Button "<------ ",[Left]
+Button " ------>",[Right]
+Print "Base Up Down"
+Slider BaseUpDown,0,180
+Button "B---^---", [BaseUp]
+Button "B---v---", [BaseDown]
+print "Arm Up Down"
+Slider ArmUpDown,0,180
+Button "A---^---", [ArmUp]
+Button "A---v---", [ArmDown]
+print "Wrist Up Down" 
+Button "W---^---", [WristUp]
+Button "W---v---", [WristDown]
+print "gipper"
+Button "-OPEN-", [GripClose]
+Button "-Close-", [GripClose]
+
+
+interrupt D6, [BUTTON] 
+
+Wait
+
+[On]
+Io(po,D4,0)
+BaseLeftRight=90
+BaseUpDown=90
+ArmUpDown=90
+WristUpDown=90
+GripperOpenClose=90
+Io(servo,D1,BaseLeftRight)
+Io(servo,D2,BaseUpDown)
+Io(servo,D3,ArmUpDown)
+Io(servo,D5,WristUpDown)
+Io(servo,D6,GripperOpenClose)
+Wait
+
+[Off]
+Io(po,D4,1)
+BaseLeftRight=90
+BaseUpDown=20
+ArmUpDown=0
+Io(servo,D1,BaseLeftRight)
+Io(servo,D2,BaseUpDown)
+Io(servo,D3,ArmUpDown)
+Wait
+
+[Left]
+BaseLeftRight=BaseLeftRight+10
+Io(servo,D1,BaseLeftRight)
+Wait
+
+[Right]
+BaseLeftRight=BaseLeftRight-10
+Io(servo,D1,BaseLeftRight)
+Wait
+
+[BaseUp]
+BaseUpDown=BaseUpDown+10
+Io(servo,D2,BaseUpDown)
+Wait
+
+[BaseDown]
+BaseUpDown=BaseUpDown-10
+Io(servo,D2,BaseUpDown)
+Wait 
+Button "turn on", [On]
+Button "turn off", [Off]
+Print
+Button "use the sliders",[Slider]
+Button "stop the sliders" ,[StopSlider]
+Print "Base Left Right"
+Slider BaseLeftRight,0,180 
+Button "<------ ",[Left]
+Button " ------>",[Right]
+Print "Base Up Down"
+Slider BaseUpDown,0,180
+Button "B---^---", [BaseUp]
+Button "B---v---", [BaseDown]
+print "Arm Up Down"
+Slider ArmUpDown,0,180
+Button "A---^---", [ArmUp]
+Button "A---v---", [ArmDown]
+print "Wrist Up Down" 
+Button "W---^---", [WristUp]
+Button "W---v---", [WristDown]
+print "gipper"
+Button "-OPEN-", [GripClose]
+Button "-Close-", [GripClose]
+
+
+interrupt D6, [BUTTON] 
+
+Wait
+
+[On]
+Io(po,D4,0)
+BaseLeftRight=90
+BaseUpDown=90
+ArmUpDown=90
+WristUpDown=90
+GripperOpenClose=90
+Io(servo,D1,BaseLeftRight)
+Io(servo,D2,BaseUpDown)
+Io(servo,D3,ArmUpDown)
+Io(servo,D5,WristUpDown)
+Io(servo,D6,GripperOpenClose)
+Wait
+
+[Off]
+Io(po,D4,1)
+BaseLeftRight=90
+BaseUpDown=20
+ArmUpDown=0
+Io(servo,D1,BaseLeftRight)
+Io(servo,D2,BaseUpDown)
+Io(servo,D3,ArmUpDown)
+Wait
+
+[Left]
+BaseLeftRight=BaseLeftRight+10
+Io(servo,D1,BaseLeftRight)
+Wait
+
+[Right]
+BaseLeftRight=BaseLeftRight-10
+Io(servo,D1,BaseLeftRight)
+Wait
+
+[BaseUp]
+BaseUpDown=BaseUpDown+10
+Io(servo,D2,BaseUpDown)
+Wait
+
+[BaseDown]
+BaseUpDown=BaseUpDown-10
+Io(servo,D2,BaseUpDown)
+Wait
